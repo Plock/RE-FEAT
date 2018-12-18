@@ -1,0 +1,61 @@
+.audio-player {
+    position: absolute;
+    bottom: 3%;
+    width: 100%;
+    padding: 0 20px 0;
+    margin: auto;
+    background-color: white;
+}
+.audio-player .player-controls {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.playAudio {
+    outline: none;
+    cursor: pointer;
+    border: none;
+    /* border-radius: 50%; */
+    width: 50px;
+    height: 50px;
+    background: url("../images/main/play-circle-solid.svg") no-repeat center;
+    background-size: contain;
+    /* box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.904); */
+}
+.playAudio:focus {
+    background-color: rgba(0, 0, 0, 0);
+}
+.playAudio.pause {
+    background: url('../images/main/stop-circle-solid.svg') no-repeat center;
+    background-size: contain;
+}
+.audio-player p {
+    margin: 0 0 0 5px;
+    line-height: 1;
+    display: inline-flex;
+}
+.audio-player p small {
+    font-size: 10px;
+}
+.audio-player #seekObjContainer {
+    position: relative;
+    width: 300px;
+    margin: 0 5px;
+    height: 5px;
+}
+.audio-player #seekObjContainer #seekObj {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #e3e3e3;
+    border: 1px solid black;
+}
+.audio-player #seekObjContainer #seekObj #percentage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: coral;
+}
+  
