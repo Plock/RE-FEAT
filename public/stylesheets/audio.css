@@ -1,8 +1,8 @@
 .audio-player {
     position: absolute;
-    bottom: 3%;
+    bottom: calc(var(--header-height) + 1%);
     width: 100%;
-    padding: 0 20px 0;
+    /* padding: 0 20px 0; */
     margin: auto;
     background-color: white;
 }
@@ -40,16 +40,16 @@
 }
 .audio-player #seekObjContainer {
     position: relative;
-    width: 300px;
-    margin: 0 5px;
-    height: 5px;
+    width: 100%;
+    /* margin: 0 5px; */
+    height: 7px;
 }
 .audio-player #seekObjContainer #seekObj {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     background-color: #e3e3e3;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 .audio-player #seekObjContainer #seekObj #percentage {
     position: absolute;
