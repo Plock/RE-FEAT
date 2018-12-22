@@ -22,6 +22,20 @@
     <!-- <link rel="stylesheet" href="/public/stylesheets/main.css"> -->
     <!-- <script src="/public/scripts/main.js"></script> -->
 
+    <script>
+        let numVisible = <%= music.length %>;
+        
+        for (let i = 0; i < numVisible.length; i++) {
+            musicImage[i] = <%= music[i].image %>;
+            musicLyrics[i] = <%= music[i].lyrics %>;
+            musicSns[i] = <%= music[i].sns %>;
+            musicUser[i] = <%= music[i].user %>;
+            musicDate[i] = <%= music[i].date %>;
+            musicPath[i] = <%= music[i].path %>;
+            musicTitle[i] = <%= music[i].title %>;
+        }
+    </script>
+
 </head>
 <body>
     <header>
@@ -53,67 +67,36 @@
                 <div id="writer-profile">
                     <div class="writer-profile-img"></div>
                     <div id="writer-profile-name">
-                        Guest
+                        <%= music[i].user %>
                     </div>
                 </div>
                 <div id="post-created-day">
-                    2018-12-07
+                    <%= music[i].date %>
                 </div>
             </div>
-            <a class="carousel-item" href="#one!">
-                <img src="../public/images/coverimg/image.jpg">
-                <div class="video-content">
-                    <button id="1" class="playAudio"></button>
-                    <div class="player-bottom">
-                        <!-- <div class="music-plus"></div> -->
-                        <div class="music-heart"></div>
+
+            <% for (let i = 0; i < music.length; i++) { %>
+                <a class="carousel-item" href="#!">
+                    <img id="music-img" src="<%= music[i].image %>">
+                    <div class="video-content">
+                        <button id="<%= i %>" class="playAudio"></button>
+                        <div class="player-bottom">
+                            <!-- <div class="music-plus"></div> -->
+                            <div class="music-heart"></div>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a class="carousel-item" href="#two!">
-                <img src="../public/images/coverimg/31229d4f6d139260e6285a70576fa16b8768734d57dc33583ea0398d55cd67e3a50c6becc2dc82ab24eb6a79798c06c1e3c35a22e12043da651efe89bf7728b8e1f0a37d9397d3dfe6387f7041dc36b0232b01336c618491c1380465df28cac5.png">
-                <div class="video-content">
-                    <button id="2" class="playAudio"></button>
-                    <div class="player-bottom">
-                        <!-- <div class="music-plus"></div> -->
-                        <div class="music-heart"></div>
-                    </div>
-                </div>
-            </a>
-            <a class="carousel-item" href="#three!">
-                <img src="../public/images/coverimg/image-2.png">
-                <div class="video-content">
-                    <button id="3" class="playAudio"></button>
-                    <div class="player-bottom">
-                        <!-- <div class="music-plus"></div> -->
-                        <div class="music-heart"></div>
-                    </div>
-                </div>
-            </a>
-            <a class="carousel-item" href="#four!">
-                <img src="../public/images/coverimg/image-3.png">
-                <div class="video-content">
-                    <button id="4" class="playAudio"></button>
-                    <div class="player-bottom">
-                        <!-- <div class="music-plus"></div> -->
-                        <div class="music-heart"></div>
-                    </div>
-                </div>
-            </a>
-            <a class="carousel-item" href="#five!">
-                <img src="../public/images/coverimg/image-4.png">
-                <div class="video-content">
-                    <button id="5" class="playAudio"></button>
-                    <div class="player-bottom">
-                        <!-- <div class="music-plus"></div> -->
-                        <div class="music-heart"></div>
-                    </div>
-                </div>
-            </a>
+                </a>
+            <% } %>
             
         </div>
-        <div id="remaining-content-button" class="waves-effect waves-light sidenav-trigger show-on-large" data-target="slide-out">
+
+
+        <div id="lyrics">
+                <%= music[i].lyrics %>
         </div>
+
+
+        <div id="remaining-content-button" class="waves-effect waves-light sidenav-trigger show-on-large" data-target="slide-out"></div>
     </main>
     <ul id="slide-out" class="sidenav">
         <button id="sidenav-exit-button" class="waves-effect btn-small white"></button>
@@ -123,38 +106,25 @@
                 <div id="sidenav-writer-profile">
                     <div class="writer-profile-img"></div>
                     <div class="writer-profile-name-date">
-                        <span>Guest</span><br>
-                        <span class="sidenav-date">2018-12-07</span>
+                        <span id="writer-profile-name-s"><%= music[i].user %></span><br>
+                        <span class="sidenav-date"><%= music[i].date %></span>
                     </div>
                 </div>
 
                 <div class="sidenav-option waves-effect"></div>
             </div>
             <div id="music-information" class="">
-                <div id="music-img"></div>
-                <span class="music-title">THE DAY</span>
+                <div id="music-img-s"></div>
+                <span class="music-title"><%= music[i].title %></span>
             </div>
         </div>
         <div class="music-content">
-            고요함이 뼛속까지 스며드는 듯 해 숨을 멈춘 오전 5시<br>
-            비상계단에서 손톱을 깨물지 내일은 어디에?<br>
-            THE DAY HAS COME<br>
-            결코 밝아오지 않는 밤도<br>
-            끊임없이 쏟아지며 개지 않는 비도<br>
-            이 돼먹지 못한 세계엔 있는 법이야<br>
-            전혀 이상한 일이 아니야<br>
-            꿈에 발을 붙잡혀 헤어나지 못하는<br>
-            당신을 비난하는 게 아니야<br>
-            홀로 공상에 빠져<br>
-            그곳에서 혼자서 상상한 것들마저 부끄럽게 생각하는 거야?<br>
-            얽히고설키는 미궁 미궁 그런데도 가겠다 말하는 거야?<br>
-            작은 나그네가 연주하는 시작의 종소리<br>
-            행선지도 DON'T KNOW DON'T KNOW<br>
-            사실은 무서운 것 아냐?<br>
-            내딛는 그 한 걸음 한 걸음이 바꿔 갈 수 있어<br>
-            THE DAY HAS COME
+            <%= music[i].sns %>
         </div>
     </ul>
+
+    
+
     <div class="audio-player">
     
         <audio id="audio">

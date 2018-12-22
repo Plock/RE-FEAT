@@ -14,8 +14,8 @@
 html, body {
     position: relative;
     width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    /* height: 100vh; */
+    /* overflow: hidden; */
     font-family: "NanumSquare", "맑은 고딕";
 }
 
@@ -249,7 +249,7 @@ main {
 }
 
 #remaining-content-button {
-    position: absolute;
+    position: fixed;
     right: 3%;
     bottom: calc(var(--header-height) + 2%);
     /* left: 0; */
@@ -323,7 +323,7 @@ main {
     background-color: #ffffff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 }
-#music-img {
+#music-img-s {
     width: 65px;
     height: 65px;
     border: 3px solid var(--bg-color);
@@ -341,9 +341,8 @@ main {
 .music-content {
     position: relative;
     bottom: 0;
-    width: 90%;
     height: calc(100vh - 245px);
-    margin: auto;
+    margin: 0 3%;
     border-radius: 10px;
     padding: 20px;
     background-color: #bdbdbd42;
@@ -450,7 +449,12 @@ footer {
     background-size: 34%;
 }
 
-
+#lyrics {
+    padding: 3%;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
 
 
 
