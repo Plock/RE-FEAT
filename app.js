@@ -1,19 +1,22 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+const bodyParser = require('body-parser');
 const createError = require('http-errors');
 const express = require('express');
 const session = require('express-session');
 const cors = require('cors');
 const path = require('path');
-const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const helmet = require('helmet');
 const compression = require('compression');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const flash = require('connect-flash');
 
 const indexRouter = require('./routes/index');
-const loginRouter = require('./routes/login');
+const authRouter = require('./routes/auth');
 
 const app = express();
 
@@ -21,23 +24,36 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());
 app.use(compression());
 app.use(cors());
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: '#$#$Project #$$#RE:FEAT$##$',
   resave: false,
   saveUninitialized: true,
 }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  database.UserModel.findById(id, (err, user) => {
+    done(err, user);
+  });
+});
 
 passport.use(new LocalStrategy(
   ((username, password, done) => {
-    User.findOne({ username }, (err, user) => {
+    database.UserModel.findOne({ username }, (err, user) => {
       if (err) { return done(err); }
       if (!user) {
         return done(null, false, { message: 'Incorrect username.' });
@@ -51,7 +67,7 @@ passport.use(new LocalStrategy(
 ));
 
 app.use('/', indexRouter);
-app.use('/login', loginRouter);
+app.use('/', authRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res) => {
