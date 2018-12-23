@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+
+    <!-- Compiled and minified -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+    <script src="/javascripts/materialize.js"></script>
+
+    <!-- Audio -->
+    <link rel="stylesheet" href="/stylesheets/audio.css">
+
+    <!-- Local -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="/javascripts/main.js"></script>
+
+    <!-- NEW Local -->
+    <!-- <link rel="stylesheet" href="/public/stylesheets/style.css"> -->
+    <!-- <script src="/public/javascripts/main.js"></script> -->
+
+    <script>
+        let numVisible = <%= music.length %>;
+        
+        for (let i = 0; i < numVisible.length; i++) {
+            musicImage[i] = <%= music[i].image %>;
+            musicLyrics[i] = <%= music[i].lyrics %>;
+            musicSns[i] = <%= music[i].sns %>;
+            musicUser[i] = <%= music[i].user %>;
+            musicDate[i] = <%= music[i].date %>;
+            musicPath[i] = <%= music[i].path %>;
+            musicTitle[i] = <%= music[i].title %>;
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <div id="main-appbar">
+            <div id="main-appbar-logo">
+                <!-- 로고 -->
+            </div>
+            <form>
+                <input type="search" name="search" id="search-bar">
+            </form>
+        </div>
+        <div id="sub-appbar">
+            <div class="user user-connected"></div>
+            <div class="user user-connected"></div>
+            <div class="user user-connected"></div>
+            <div class="user user-connected"></div>
+            <div class="user"></div>
+            <div class="user"></div>
+            <div class="user"></div>
+            <div class="user"></div>
+            <div class="user"></div>
+            <div class="user"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="carousel">
+            <div id="post-information">
+                <div id="writer-profile">
+                    <div class="writer-profile-img"></div>
+                    <div id="writer-profile-name">
+                        <%= music[i].user %>
+                    </div>
+                </div>
+                <div id="post-created-day">
+                    <%= music[i].date %>
+                </div>
+            </div>
+
+            <% for (let i = 0; i < music.length; i++) { %>
+                <a class="carousel-item" href="#!">
+                    <img id="music-img" src="<%= music[i].image %>">
+                    <div class="video-content">
+                        <button id="<%= i %>" class="playAudio"></button>
+                        <div class="player-bottom">
+                            <!-- <div class="music-plus"></div> -->
+                            <div class="music-heart"></div>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
+            
+        </div>
+
+
+        <div id="lyrics">
+                <%= music[i].lyrics %>
+        </div>
+
+
+        <div id="remaining-content-button" class="waves-effect waves-light sidenav-trigger show-on-large" data-target="slide-out"></div>
+    </main>
+    <ul id="slide-out" class="sidenav">
+        <button id="sidenav-exit-button" class="waves-effect btn-small white"></button>
+        <li><div class="divider"></div></li>
+        <div>
+            <div id="sidenav-post-information">
+                <div id="sidenav-writer-profile">
+                    <div class="writer-profile-img"></div>
+                    <div class="writer-profile-name-date">
+                        <span id="writer-profile-name-s"><%= music[i].user %></span><br>
+                        <span class="sidenav-date"><%= music[i].date %></span>
+                    </div>
+                </div>
+
+                <div class="sidenav-option waves-effect"></div>
+            </div>
+            <div id="music-information" class="">
+                <div id="music-img-s"></div>
+                <span class="music-title"><%= music[i].title %></span>
+            </div>
+        </div>
+        <div class="music-content">
+            <%= music[i].sns %>
+        </div>
+    </ul>
+
+    
+
+    <div class="audio-player">
+    
+        <audio id="audio">
+            <source src="https://thenewcode.com/assets/audio/24-ghosts-III.mp3" type="audio/mp3">
+        </audio>
+    
+        <div class="player-controls">
+    
+    
+        <div id="seekObjContainer">
+            <div id="seekObj">
+            <div id="percentage"></div>
+            </div>
+        </div>
+    
+        <p><small id="currentTime" class="display-none">00:00</small></p>
+    
+        </div>
+    </div>
+    <footer>
+        <div id="sns" class="footer-item footer-item-selected"></div>
+        <div id="music" class="footer-item"></div>
+        <div id="friends" class="footer-item"></div>
+        <div id="mypage" class="footer-item"></div>
+        <div id="setting" class="footer-item"></div>
+    </footer>
+    <script src="/javascripts/audio.js"></script>
+</body>
+</html>

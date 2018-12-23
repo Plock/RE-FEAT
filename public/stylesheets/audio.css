@@ -19,7 +19,7 @@
     /* border-radius: 50%; */
     width: 50px;
     height: 50px;
-    background: url("../images/main/play-circle-solid.svg") no-repeat center;
+    background: url("/images/main/play-circle-solid.svg") no-repeat center;
     background-size: contain;
     /* box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.904); */
 }
@@ -27,7 +27,7 @@
     background-color: rgba(0, 0, 0, 0);
 }
 .playAudio.pause {
-    background: url('../images/main/stop-circle-solid.svg') no-repeat center;
+    background: url('/images/main/stop-circle-solid.svg') no-repeat center;
     background-size: contain;
 }
 .audio-player p {
