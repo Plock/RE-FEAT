@@ -5,20 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%= title %></title>
+
+    <!-- Compiled and minified -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+    <script src="/javascripts/materialize.js"></script>
+
+    <!-- Audio -->
+    <link rel="stylesheet" href="/stylesheets/audio.css">
+
+    <!-- Local -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="/javascripts/main.js"></script>
+    
 </head>
 <body>
-    <form action="/login/passport" method="post">
-        <div>
-            <label>Username:</label>
-            <input type="text" name="username"/>
+    <header>
+        <div id="main-appbar">
+            <div id="main-appbar-logo">
+                <!-- 로고 -->
+            </div>
+            <form>
+                <input type="search" name="search" id="search-bar">
+            </form>
         </div>
-        <div>
-            <label>Password:</label>
-            <input type="password" name="password"/>
-        </div>
-        <div>
-            <input type="submit" value="Log In"/>
-        </div>
-    </form>
+    </header>
+
+    <main id="login-page">
+        <form id="login-form" action="/login/passport" method="post">
+            <div class="input-field">
+                <input id="username" type="text" name="username" class="validate">
+                <label for="username">Username</label>
+            </div>
+            <div class="input-field">
+                <input id="password" type="password" name="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+            <div>
+                <button class="login-button waves-effect waves-light btn" type="submit" value="">Login</button>
+            </div>
+        </form>
+    </main>
 </body>
 </html>

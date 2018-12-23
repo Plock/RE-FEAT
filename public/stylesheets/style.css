@@ -456,9 +456,24 @@ footer {
     line-height: 2rem;
 }
 
-
-
-
+#login-page {
+    height: 100vh;
+}
+#login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: space-around;
+    height: 100%;
+}
+.input-field {
+    width: 80vw;
+}
+.login-button {
+    margin-left: 50vw;
+    color: white;
+}
 
 .display-none {
     display: none;
