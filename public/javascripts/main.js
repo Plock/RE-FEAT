@@ -34,6 +34,7 @@ onload = function () {
         friendsButton.classList.remove("footer-item-selected");
         mypageButton.classList.add("footer-item-selected");
         settingButton.classList.remove("footer-item-selected");
+        location.href = "/post";
     });
     settingButton.addEventListener("click", () => {
         snsButton.classList.remove("footer-item-selected");

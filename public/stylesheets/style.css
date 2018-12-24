@@ -478,3 +478,15 @@ footer {
 .display-none {
     display: none;
 }
+.manifestation {
+    position: absolute;
+    top: 10vw;
+    left: 10vw;
+}
+.emoticon {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.text-center {
+    text-align: center;
+}

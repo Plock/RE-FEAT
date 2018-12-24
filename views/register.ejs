@@ -32,8 +32,8 @@
     </header>
 
     <main id="login-page">
-            <h4 class="manifestation">로그인</h4>
-        <form id="login-form" action="/login" method="post">
+            <h4 class="manifestation">회원가입</h4>
+        <form id="login-form" action="/register" method="post">
             <div class="input-field">
                 <input id="username" type="text" name="username" class="validate">
                 <label for="username">Username</label>
@@ -42,10 +42,14 @@
                 <input id="password" type="password" name="password" class="validate">
                 <label for="password">Password</label>
             </div>
-            <div>
-                <button class="login-button waves-effect waves-light btn" type="submit" value="">Login</button>
+            <div class="input-field">
+                <input id="confirmPassword" type="password" name="confirmPassword" class="validate">
+                <label for="confirmPassword">Confirm Password</label>
             </div>
-            <a href="/register">아직 회원이 아니신가요?</a>
+            <div>
+                <button class="login-button waves-effect waves-light btn" type="submit" value="">register</button>
+            </div>
+            <a href="/login">이미 회원이신가요?</a>
         </form>
     </main>
 </body>
